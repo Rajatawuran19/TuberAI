@@ -1,0 +1,292 @@
+/* =========================
+   THEME TOKENS
+========================= */
+:root[data-theme="dark"]{
+  --bg:#0b0f17;
+  --panel:#111827;
+  --card:#0f172a;
+  --muted:#94a3b8;
+  --text:#e5e7eb;
+  --line: rgba(255,255,255,.10);
+  --lineSoft: rgba(255,255,255,.08);
+  --chip: rgba(255,255,255,.06);
+  --chipBorder: rgba(255,255,255,.12);
+  --primary:#4f46e5;
+
+  --shadow: 0 30px 80px rgba(0,0,0,.45);
+
+  /* Background accents (dark) */
+  --accentA: #172554;
+  --accentB: #3b0764;
+
+  /* Header glass (dark) */
+  --headerGlass: rgba(11,15,23,.60);
+}
+
+:root[data-theme="light"]{
+  --bg:#f8fafc;
+  --panel:#ffffff;
+  --card:#ffffff;
+  --muted:#475569;
+  --text:#0f172a;
+  --line: rgba(15,23,42,.12);
+  --lineSoft: rgba(15,23,42,.10);
+  --chip: rgba(15,23,42,.04);
+  --chipBorder: rgba(15,23,42,.12);
+  --primary:#2563eb;
+
+  --shadow: 0 22px 60px rgba(15,23,42,.12);
+
+  /* Background accents (light) */
+  --accentA: rgba(37,99,235,.18);
+  --accentB: rgba(147,51,234,.14);
+
+  /* Header glass (light) */
+  --headerGlass: rgba(248,250,252,.72);
+}
+
+/* =========================
+   BASE
+========================= */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:var(--text);
+
+  /* Theme-aware background */
+  background:
+    radial-gradient(1200px 600px at 20% 0%, var(--accentA) 0%, var(--bg) 55%),
+    radial-gradient(1000px 500px at 90% 10%, var(--accentB) 0%, var(--bg) 55%);
+}
+
+/* =========================
+   TOPBAR
+========================= */
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 20px;
+  border-bottom:1px solid var(--lineSoft);
+  position:sticky; top:0;
+  backdrop-filter: blur(10px);
+  background: var(--headerGlass);
+}
+
+.brand{display:flex; gap:12px; align-items:center}
+.logo{
+  width:44px;height:44px;border-radius:14px;
+  display:grid;place-items:center;
+  background: var(--chip);
+  border:1px solid var(--chipBorder);
+  font-size:22px;
+}
+.title{font-weight:800; letter-spacing:.2px}
+.subtitle{color:var(--muted); font-size:12px; margin-top:2px}
+
+.controls{display:flex; gap:10px; align-items:center}
+.toggle{display:flex; gap:8px; align-items:center; color:var(--muted); font-size:13px}
+
+select{
+  background: var(--chip);
+  color:var(--text);
+  border:1px solid var(--chipBorder);
+  padding:8px 10px;
+  border-radius:12px;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.container{
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  gap:18px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 20px 30px;
+}
+
+/* =========================
+   APP SHELL
+========================= */
+.phone{
+  border-radius: 22px;
+  border:1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 70%, transparent);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+/* =========================
+   STEPPER
+========================= */
+.stepper{
+  display:flex; gap:12px;
+  padding:14px 16px;
+  border-bottom:1px solid var(--lineSoft);
+  background: color-mix(in srgb, var(--panel) 85%, transparent);
+}
+.step{display:flex; gap:10px; align-items:center; opacity:.55}
+.step.active{opacity:1}
+.dot{
+  width:26px;height:26px;border-radius:10px;
+  display:grid; place-items:center;
+  background: var(--chip);
+  border:1px solid var(--chipBorder);
+  font-weight:700; font-size:13px;
+}
+.label{font-size:13px; color:var(--muted)}
+
+/* =========================
+   SCREENS & TYPOGRAPHY
+========================= */
+.screen{display:none; padding:16px}
+.screen.active{display:block}
+
+.h1{margin:6px 0 4px; font-size:22px}
+.h2{margin:0 0 10px; font-size:16px}
+.h3{margin:0 0 8px; font-size:14px}
+.muted{color:var(--muted); line-height:1.45}
+.small{font-size:13px}
+
+/* =========================
+   CARDS
+========================= */
+.card{
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  border:1px solid var(--lineSoft);
+  border-radius:18px;
+  padding:14px;
+  margin-top:12px;
+}
+.card.danger{border-color: color-mix(in srgb, #ef4444 35%, var(--lineSoft))}
+.card.warning{border-color: color-mix(in srgb, #f59e0b 35%, var(--lineSoft))}
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+.field{display:block; margin:10px 0}
+.fieldLabel{display:block; margin-bottom:8px; color:var(--muted); font-size:13px}
+.rangeRow{display:flex; gap:12px; align-items:center}
+input[type="range"]{width:100%}
+
+.pill{
+  padding:6px 10px; border-radius:999px;
+  background: var(--chip);
+  border:1px solid var(--chipBorder);
+  min-width:38px;
+  text-align:center;
+}
+
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.check{
+  display:flex; gap:10px; align-items:flex-start;
+  padding:10px; border-radius:14px;
+  border:1px solid var(--lineSoft);
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+  color: var(--text);
+}
+.check input{margin-top:2px}
+
+/* =========================
+   BUTTONS
+========================= */
+.actions{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+.btn{
+  padding:10px 12px; border-radius:14px;
+  border:1px solid var(--chipBorder);
+  background: var(--chip);
+  color: var(--text);
+  cursor:pointer;
+}
+.btn:hover{filter:brightness(1.05)}
+.btn.primary{
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 92%, white), color-mix(in srgb, var(--primary) 65%, transparent));
+  border-color: var(--chipBorder);
+}
+.btn.ghost{background: transparent}
+
+/* =========================
+   RESULT ELEMENTS
+========================= */
+.row{display:flex; align-items:center; justify-content:space-between; gap:10px}
+
+.badge{
+  padding:8px 12px; border-radius:999px;
+  border:1px solid var(--chipBorder);
+  background: var(--chip);
+  font-weight:800;
+}
+.badge.low{background: rgba(34,197,94,.14); border-color: rgba(34,197,94,.28)}
+.badge.medium{background: rgba(245,158,11,.14); border-color: rgba(245,158,11,.28)}
+.badge.high{background: rgba(239,68,68,.14); border-color: rgba(239,68,68,.28)}
+
+.summaryGrid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;
+}
+.mini{
+  padding:10px; border-radius:14px;
+  border:1px solid var(--lineSoft);
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+}
+.miniLabel{color:var(--muted); font-size:12px}
+.miniValue{font-size:16px; font-weight:800; margin-top:6px}
+
+.divider{height:1px; background: var(--lineSoft); margin:12px 0}
+
+.list{margin:0; padding-left:18px}
+.list li{margin:6px 0}
+
+.tips{display:grid; gap:6px; margin-top:10px}
+.tip{
+  padding:10px; border-radius:14px;
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+  border:1px solid var(--lineSoft);
+}
+
+/* Copy buffer */
+.copyBuffer{
+  width:100%;
+  margin-top:10px;
+  min-height: 120px;
+  background: color-mix(in srgb, black 10%, var(--panel));
+  color: var(--text);
+  border:1px solid var(--chipBorder);
+  border-radius:14px;
+  padding:10px;
+  display:none;
+}
+
+.footnote{margin-top:10px; color:var(--muted); font-size:12px}
+
+/* =========================
+   SIDEBAR
+========================= */
+.side{display:grid; gap:12px}
+.sideCard{
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  border:1px solid var(--lineSoft);
+  border-radius:18px;
+  padding:14px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer{
+  padding:14px 20px 22px;
+  color: color-mix(in srgb, var(--muted) 92%, transparent);
+  text-align:center;
+  font-size:12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 960px){
+  .container{grid-template-columns:1fr}
+  .side{order:-1}
+  .grid2{grid-template-columns:1fr}
+  .summaryGrid{grid-template-columns:1fr}
+}

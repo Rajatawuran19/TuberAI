@@ -56,18 +56,40 @@ export default function LandingPage() {
         
         {/* Mockup visual */}
         <div className="flex-1 w-full max-w-lg">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-surface-container-lowest bg-surface-container-low aspect-[4/5] flex flex-col">
-            <div className="bg-primary/10 w-full h-48 flex items-center justify-center">
-              <span className="material-symbols-outlined text-primary text-6xl opacity-50">health_and_safety</span>
-            </div>
-            <div className="p-6 space-y-4">
-              <div className="h-4 bg-surface-variant rounded w-3/4"></div>
-              <div className="h-4 bg-surface-variant rounded w-1/2"></div>
-              <div className="h-4 bg-surface-variant rounded w-5/6"></div>
-              <div className="mt-8 p-4 bg-primary text-on-primary rounded-xl flex justify-between items-center">
-                <span>Start Questionnaire</span>
-                <span className="material-symbols-outlined">chevron_right</span>
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-surface-container-lowest bg-surface-container-low aspect-[4/5] flex flex-col justify-between">
+            <div>
+              <div className="bg-primary/10 w-full h-40 flex items-center justify-center">
+                <span className="material-symbols-outlined text-primary text-6xl opacity-80">health_and_safety</span>
               </div>
+              <div className="p-6 space-y-4">
+                <h3 className="text-xl font-bold text-on-surface">AI Risk Assessment</h3>
+                <p className="text-on-surface-variant text-sm leading-relaxed">
+                  Answer a few questions about your symptoms and medical history. Our AI will analyze your responses to provide a personalized TB risk assessment.
+                </p>
+                <ul className="text-sm text-on-surface-variant space-y-3 mt-4">
+                  <li className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
+                    Takes only 2 minutes
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
+                    100% Private & secure
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
+                    Instant AI analysis
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="p-6 pt-0">
+              <button 
+                onClick={() => navigate('/quiz')}
+                className="w-full p-4 bg-primary text-on-primary hover:bg-primary/90 transition-colors rounded-xl flex justify-between items-center shadow-md cursor-pointer group"
+              >
+                <span className="font-semibold">Start Questionnaire</span>
+                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+              </button>
             </div>
           </div>
         </div>

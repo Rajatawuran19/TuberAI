@@ -102,10 +102,25 @@ export default function ResultPage() {
                 AI Explanation & Next Steps
               </h2>
               {loadingAi ? (
-                <div className="animate-pulse space-y-3">
-                  <div className="h-4 bg-surface-variant rounded w-3/4"></div>
-                  <div className="h-4 bg-surface-variant rounded w-5/6"></div>
-                  <div className="h-4 bg-surface-variant rounded w-1/2"></div>
+                <div className="flex flex-col items-center justify-center py-8 space-y-4 bg-surface-container-lowest rounded-xl border border-outline-variant/30">
+                  <div className="relative flex items-center justify-center w-16 h-16">
+                    <div className="absolute inset-0 rounded-full border-4 border-primary/20"></div>
+                    <div className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin"></div>
+                    <span className="material-symbols-outlined text-primary text-2xl animate-pulse">smart_toy</span>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="font-semibold text-on-surface">
+                      {lang === 'id' ? 'Menganalisis Gejala Anda...' : 'Analyzing Your Symptoms...'}
+                    </h3>
+                    <p className="text-sm text-on-surface-variant mt-1">
+                      {lang === 'id' ? 'AI sedang menyusun rekomendasi personal untuk Anda.' : 'AI is generating personalized recommendations for you.'}
+                    </p>
+                  </div>
+                  <div className="w-full max-w-sm mt-4 animate-pulse space-y-2 opacity-50">
+                    <div className="h-2 bg-surface-variant rounded w-full"></div>
+                    <div className="h-2 bg-surface-variant rounded w-5/6 mx-auto"></div>
+                    <div className="h-2 bg-surface-variant rounded w-4/6 mx-auto"></div>
+                  </div>
                 </div>
               ) : (
                 <div className="prose prose-sm max-w-none text-on-surface-variant">

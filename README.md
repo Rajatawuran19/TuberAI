@@ -21,84 +21,73 @@ Doctor-Ready Output** — Easily share results with healthcare professionals for
 This is a **screening tool, not a medical diagnosis**. Always consult a licensed healthcare professional for confirmation and treatment.
 
 # Installation and Setup
-Follow these steps to run the TBC Detection App locally.
+This project is designed to be simple to run locally. Follow the steps below:
 
-1. Clone the Repository
+---
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
 ```
 
-2. Install Dependencies
+---
 
-Make sure you have **Node.js** installed, then run:
+### 2. Install Dependencies
+
+Install all required packages (even if not strictly needed for the demo):
 
 ```bash
 npm install
 ```
 
-3. Configure Environment Variables
+---
 
-Create a `.env` file in the root directory and configure the required variables.
+### 3. Run the App
 
-Example:
+Open the prototype directly in your browser:
 
-```env
-PORT=3000
+```
+backup/index.html
 ```
 
-> Add other environment variables if required by your `server.js`.
+You can do this by:
 
-4. Project Structure (Relevant Files)
+* Double-clicking the file
+* Or right-click → **Open with browser**
+* Or using VS Code Live Server
 
-Make sure these core files are present:
+---
 
-* `.env` → Environment configuration
-* `server.js` → Backend server
-* `app.js` → Main frontend logic
-* `index.html` → UI entry point
-* `styles.css` → Styling
+### That’s It
 
-5. Run the Server
+No build step required. No server required.
 
-Start the backend server:
+The app will run entirely in the browser using the preconfigured frontend logic.
+
+---
+
+### Notes
+
+* Make sure `styles.css` and `app.js` are in the correct relative paths
+* Backend (`server.js`) is optional and not required for this prototype
+* `.env` is not needed for basic local usage
+
+---
+
+### Optional (Advanced)
+
+If you want to run the full development environment:
+
+```bash
+npm run dev
+```
+
+Or start the backend server:
 
 ```bash
 node server.js
 ```
 
-Or (if configured):
-
-```bash
-npm run dev
-```
-
-6. Open the Application
-
-* If using a dev server (e.g., Vite):
-
-```bash
-npm run dev
-```
-
-Then open the provided local URL (usually `http://localhost:5173`)
-
-* If running manually:
-  Open `index.html` in your browser or serve it using a local server.
-
-7. Build / Deploy (Optional)
-
-To compile the project for production:
-
-```bash
-npm run build
-```
-
-You can then host the built files using any static hosting service (e.g., Netlify, Vercel) or serve via your backend.
-
 ---
-
-Notes
-* Ensure `.env` is properly configured before running the server
-* This app requires both frontend (`index.html`, `app.js`) and backend (`server.js`) to function correctly
